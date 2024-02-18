@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Browser</title>
+  <style>
+    /* Your CSS styles here */
+  </style>
+</head>
+<body>
+  <div id="browser-container">
+    <div id="address-bar">
+      <input type="text" id="search-input" placeholder="Enter search query">
+      <button id="search-button">Search</button>
+    </div>
+    <div id="content">
+      <!-- Search results will be displayed here -->
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('search-button').addEventListener('click', search);
+    });
+
+    function search() {
+      var searchQuery = document.getElementById('search-input').value;
+      var contentDiv = document.getElementById('content');
+
+      // Basic validation
+      if (!searchQuery) {
+        alert('Please enter a search query.');
+        return;
+      }
+
+      // Clear content
+      contentDiv.innerHTML = 'Loading...';
+
+      // Open Google search results in a new window
+      window.open(`https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`);
+    }
+  </script>
+</body>
+</html>
