@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Browser</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f8f8;
+    }
+
+    #browser-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+
+    #address-bar {
+      background-color: #4285f4;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    #search-input {
+      flex: 1;
+      padding: 8px;
+      margin-right: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    #search-button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #34a853;
+      color: #fff;
+      transition: background-color 0.3s;
+    }
+
+    #search-button:hover {
+      background-color: #2f9e44;
+    }
+
+    #content {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="browser-container">
+    <div id="address-bar">
+      <input type="text" id="search-input" placeholder="Enter search query">
+      <button id="search-button">Search</button>
+    </div>
+    <div id="content">
+      <!-- Search results will be displayed here -->
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('search-button').addEventListener('click', search);
+    });
+
+    function search() {
+      var searchQuery = document.getElementById('search-input').value;
+      window.open(`https://www.duckduckgo.com/search?q=${encodeURIComponent(searchQuery)}`);
+    }
+  </script>
+</body>
+</html>
